@@ -174,6 +174,11 @@ class SimpleCamera: NSObject, SimpleCameraProtocol {
                 
                 preferredDeviceType = .builtInWideAngleCamera
                 
+            @unknown default:
+                preferredPosition = .back
+                
+                preferredDeviceType = .builtInDualCamera
+                
             }
             
             self.changeCameraPosition(activeInput: activeInput, preferredPosition: preferredPosition, preferredDeviceType: preferredDeviceType)
@@ -856,6 +861,8 @@ class SimpleCamera: NSObject, SimpleCameraProtocol {
         case .restricted:
             
             completionHandler(false)
+        @unknown default:
+            break
             
         }
     }

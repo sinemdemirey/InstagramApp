@@ -50,6 +50,8 @@ enum SimpleCameraPosition: Int {
             
             return SimpleCameraPosition.unspecified
             
+        @unknown default:
+            return SimpleCameraPosition.back
         }
         
     }
